@@ -9,6 +9,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 deactivate nondestructive
 
 setenv VIRTUAL_ENV "/home/kasparov/Desktop/RestApi/COURTYARD/virtual"
+setenv VIRTUAL_ENV "/home/natasha/Desktop/moringa-school-projects/Le-Courtyard/virtual"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
