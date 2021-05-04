@@ -9,7 +9,7 @@ class Config(object):
   
 class DevConfig(Config):
   '''Development configuration'''
-  
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kagus:Muraya11$@localhost/courtyard'
   DEBUG = True
   
   
