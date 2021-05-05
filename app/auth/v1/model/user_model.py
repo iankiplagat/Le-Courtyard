@@ -43,6 +43,13 @@ User_schema = UserModelsSchema()
 Users_schema = UserModelsSchema(many=True)
 
 
+
+
+
+
+
+
+
   # def register(self):
   #   '''method to sign up a user '''
   #   data = dict(
