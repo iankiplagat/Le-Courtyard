@@ -28,6 +28,7 @@ deactivate () {
     fi
 
     unset VIRTUAL_ENV
+    if [ ! "${1:-}" = "nondestructive" ] ; then
     if [ ! "$1" = "nondestructive" ] ; then
     # Self destruct!
         unset -f deactivate
@@ -37,6 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+VIRTUAL_ENV="/home/kasparov/Desktop/RestApi/COURTYARD/virtual"
 VIRTUAL_ENV="/home/natasha/Desktop/moringa-school-projects/Le-Courtyard/virtual"
 export VIRTUAL_ENV
 

@@ -29,6 +29,8 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
+set -gx VIRTUAL_ENV "/home/kasparov/Desktop/RestApi/COURTYARD/virtual"
+=======
 set -gx VIRTUAL_ENV "/home/natasha/Desktop/moringa-school-projects/Le-Courtyard/virtual"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
@@ -52,6 +54,7 @@ if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"
         set -l old_status $status
 
         # Prompt override?
+        if test -n "(virtual) "
         if test -n "(virtual) "            
             printf "%s%s" "(virtual) " (set_color normal)
         else
