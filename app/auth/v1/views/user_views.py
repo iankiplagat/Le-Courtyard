@@ -35,7 +35,7 @@ class Users(Resource):
     return {
       "status": 201,
       "message": "User registered",
-      "user": jsonify(result)
+      "user": result
     }, 201
 
 
