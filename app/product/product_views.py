@@ -1,13 +1,19 @@
 from flask import jsonify,make_response,request
 from flask_restful import Resource
 from flask_restful.reqparse import RequestParser
-from app.auth.v1.model.product_model import Product
+from app.auth.v1.model.product_model import Product, ProductSchema, product_schema, products_schema
+from . import product
+from flask_marshmallow import Marshmallow
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+ma = Marshmallow()
 
 
 class Products(Resource):
   '''Class to register product(s)'''
 
-  @app.route('/product', methods = ['POST'])
+  @product.route('/product', methods = ['POST'])
   def add_product():
     name = request.json['name']
     description = request.json['description']

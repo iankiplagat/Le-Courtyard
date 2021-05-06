@@ -14,6 +14,9 @@ def create_app(config_name):
   app.url_map.strict_slashes = False
   db.init_app(app)
   ma.init_app(app)
+  #from product_model import product as product_blueprint
+  from .product import product as product_blueprint
   app.register_blueprint(v1)
-  
+  app.register_blueprint(product_blueprint)
+
   return app
