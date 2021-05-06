@@ -48,3 +48,4 @@ class UserModelsSchema(ma.Schema):
 
 User_schema = UserModelsSchema()
 Users_schema = UserModelsSchema(many=True)
+

@@ -13,6 +13,7 @@ def validate_username(username):
     return user
 
 
+
 class Users(Resource):
     '''Class to register user(s)'''
 
@@ -69,6 +70,7 @@ class Login(Resource):
         password = data["password"]
 
         user = UserModels.query.filter_by(username=username).first()
+
         if validate.validate_user(username):
             return validate.validate_user(username)
         if user.verify_password(password) is not True:
@@ -82,3 +84,4 @@ class Login(Resource):
             "message": "Logged in as {}".format(username),
             "data": User_schema.dump(user)
         }, 200
+
