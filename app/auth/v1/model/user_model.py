@@ -3,6 +3,8 @@ from flask_marshmallow import Marshmallow
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+
+
 db = SQLAlchemy()
 ma = Marshmallow()
 
@@ -33,6 +35,10 @@ class UserModels(UserMixin, db.Model):
         users = UserModels.query.all()
         return users
 
+
+    
+
+
     def __repr__(self):
         return f'User {self.username}'
 
@@ -52,6 +58,7 @@ class Product(db.Model):
   description = db.Column(db.String(200))
   price = db.Column(db.Float)
   qty = db.Column(db.Integer)
+
 
   def save_product(self):
     db.session.add(self)

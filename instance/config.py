@@ -19,6 +19,7 @@ class DevConfig(Config):
 
 class StageConfig(Config):
     '''Staging configuration'''
+    SQLALCHEMY_DATABASE_URI = ''
 
     SQLALCHEMY_DATABASE_URI = ""
     DEBUG = True
@@ -32,6 +33,7 @@ class ProdConfig(Config):
 
 class TestConfig(Config):
     '''Testing class configuration'''
+    SQLALCHEMY_DATABASE_URI = ''
 
     SQLALCHEMY_DATABASE_URI = ""
     TESTING = True
