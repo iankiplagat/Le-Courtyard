@@ -1,6 +1,5 @@
 import os
 
-
 class Config(object):
     '''Config class'''
 
@@ -20,8 +19,6 @@ class StageConfig(Config):
     '''Staging configuration'''
 
     SQLALCHEMY_DATABASE_URI = ''
-
-
     DEBUG = True
 
 
@@ -35,10 +32,7 @@ class TestConfig(Config):
     '''Testing class configuration'''
 
     SQLALCHEMY_DATABASE_URI = ''
-
-
     TESTING = True
-
 
 app_config = {
     'development': DevConfig,
