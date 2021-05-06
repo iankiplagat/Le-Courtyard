@@ -29,12 +29,13 @@ class UserModels(UserMixin, db.Model):
     def verify_password(self, password):
         return check_password_hash(self.pass_secure, password)
 
-    def __repr__(self):
-        return f'User {self.username}'
-
     def save_user(self):
         db.session.add(self)
         db.session.commit()
+
+    def fetch_all_users(self):
+        users = UserModels.query.all()
+        return users
 
     def __repr__(self):
         return f'User {self.username}'
