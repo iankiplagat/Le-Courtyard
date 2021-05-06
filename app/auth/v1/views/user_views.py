@@ -71,6 +71,12 @@ class Login(Resource):
         user = UserModels.query.filter_by(username=username).first()
         if validate.validate_user(username):
             return validate.validate_user(username)
+        if user.verify_password(password) is not True:
+            return {
+                "status": 404,
+                "error": "Wrong password"
+            }, 401
+
         return {
             "status": 200,
             "message": "Logged in as {}".format(username),

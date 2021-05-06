@@ -8,6 +8,7 @@ db = SQLAlchemy()
 ma = Marshmallow()
 
 
+
 class UserModels(UserMixin, db.Model):
 
     '''Class for user operation'''
