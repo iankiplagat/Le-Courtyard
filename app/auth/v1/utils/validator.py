@@ -1,3 +1,4 @@
+import re
 from app.auth.v1.model.user_model import UserModels
 
 
@@ -25,3 +26,13 @@ class Validators():
                 "status": 404,
                 "error": "User does not exist"
             }, 404
+
+    def valid_email(self, email):
+        """Method to validate email"""
+        ex = re.compile(
+            r"(^[a-zA-Z0-9_+-]+(\.[0-9a-zA-Z_-]+)*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
+        if not re.match(ex, email):
+            return {
+                "status": 400,
+                "error": "{} is not a valid email".format(email)
+            }, 400

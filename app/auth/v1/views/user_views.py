@@ -32,7 +32,8 @@ class Users(Resource):
         username = args["username"]
         email = args["email"]
         password = args["password"]
-
+        if validate.valid_email(email):
+            return validate.valid_email(email)
         if validate.user_exists(email, username):
             return validate.user_exists(email, username)
 
