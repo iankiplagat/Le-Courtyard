@@ -12,16 +12,14 @@ class Config(object):
 class DevConfig(Config):
     '''Development configuration'''
 
-    SQLALCHEMY_DATABASE_URI = ""
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kasparov:ian@2304@localhost/courtyard'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG = True
 
 
 class StageConfig(Config):
     '''Staging configuration'''
-    SQLALCHEMY_DATABASE_URI = ''
-
-    SQLALCHEMY_DATABASE_URI = ""
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kasparov:ian@2304@localhost/courtyard'
     DEBUG = True
 
 
@@ -33,9 +31,7 @@ class ProdConfig(Config):
 
 class TestConfig(Config):
     '''Testing class configuration'''
-    SQLALCHEMY_DATABASE_URI = ''
-
-    SQLALCHEMY_DATABASE_URI = ""
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kasparov:ian@2304@localhost/courtyard'
     TESTING = True
 
 app_config = {
