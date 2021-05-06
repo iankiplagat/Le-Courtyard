@@ -49,23 +49,3 @@ class UserModelsSchema(ma.Schema):
 User_schema = UserModelsSchema()
 Users_schema = UserModelsSchema(many=True)
 
-# def register(self):
-#   '''method to sign up a user '''
-#   data = dict(
-#     userID = self.userId,
-#     email = self.email,
-#     password=self.password,
-#     confirm_password= self.confirm_password
-#   )
-#   self.users.append(data)
-#   return self.userId
-
-# def fetch_user_by_userId(self,userId):
-#   ''' Get a user instance using their id '''
-#   for user in users:
-#     if user['userId'] == userId:
-#       return user
-
-# def fetch_all(self):
-#   '''Get the whole data'''
-#   return UserModels.users
