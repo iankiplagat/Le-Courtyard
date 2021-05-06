@@ -36,12 +36,3 @@ class Validators():
                 "status": 400,
                 "error": "{} is not a valid email".format(email)
             }, 400
-
-    # def valid_password(self, password):
-    #     """ Method to validate password """
-    #     user = UserModels.query.filter_by(password=password).first()
-    #     if user.verify_password(password=password) is not True:
-    #         return {
-    #             "status": 404,
-    #             "error": "Wrong password"
-    #         }, 401
