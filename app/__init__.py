@@ -9,7 +9,7 @@ from .auth.v1.model.user_model import db,ma
 
 def create_app(config_name):
   app = Flask(__name__, instance_relative_config=True)
-  app.config.from_object(app_config[config_name])
+  # app.config.from_object(app_config[config_name])
   app.config.from_pyfile('config.py')
   app.url_map.strict_slashes = False
   db.init_app(app)
