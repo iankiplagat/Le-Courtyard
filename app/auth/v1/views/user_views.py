@@ -1,8 +1,11 @@
 from flask import jsonify, make_response, request
 from flask_restful import Resource
 from flask_restful.reqparse import RequestParser
-
+from app.auth.v1.utils.validator import Validators
 from app.auth.v1.model.user_model import UserModels, UserModelsSchema, Users_schema, User_schema
+
+
+validate = Validators()
 
 
 def validate_username(username):
@@ -30,7 +33,12 @@ class Users(Resource):
         email = args["email"]
         password = args["password"]
 
+        if validate.user_exists(email, username):
+            return validate.user_exists(email, username)
+
         newUser = UserModels(username=username, email=email, password=password)
+        user = validate_username(username=username)
+
         newUser.save_user()
         result = User_schema.dump(newUser)
 
@@ -60,16 +68,10 @@ class Login(Resource):
         password = data["password"]
 
         user = UserModels.query.filter_by(username=username).first()
-        if user:
-            check = validate_username(username=username)
-            if check is True:
-                return {
-                    "status": 404,
-                    "error": "user already exists"
-                }, 401
-
-            return {
-                "status": 200,
-                "message": "Logged in as {}".format(username),
-                "data": User_schema.dump(user)
-            }, 200
+        if validate.validate_user(username):
+            return validate.validate_user(username)
+        return {
+            "status": 200,
+            "message": "Logged in as {}".format(username),
+            "data": User_schema.dump(user)
+        }, 200
