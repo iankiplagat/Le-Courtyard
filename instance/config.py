@@ -5,20 +5,23 @@ class Config(object):
 
     SECRET_KEY = os.getenv('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     CSRF_ENABLED = True
 
 
 class DevConfig(Config):
     '''Development configuration'''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://lenovo:1234@localhost/courtyard'
+
+    SQLALCHEMY_DATABASE_URI = ""
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG = True
 
 
 class StageConfig(Config):
     '''Staging configuration'''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://lenovo:1234@localhost/courtyard'
-
     SQLALCHEMY_DATABASE_URI = ''
+
+    SQLALCHEMY_DATABASE_URI = ""
     DEBUG = True
 
 
@@ -30,9 +33,9 @@ class ProdConfig(Config):
 
 class TestConfig(Config):
     '''Testing class configuration'''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://lenovo:1234@localhost/courtyard'
-
     SQLALCHEMY_DATABASE_URI = ''
+
+    SQLALCHEMY_DATABASE_URI = ""
     TESTING = True
 
 app_config = {
