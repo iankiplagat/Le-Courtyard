@@ -74,7 +74,7 @@ class Login(Resource):
         if user.verify_password(password) is not True:
             return {
                 "status": 404,
-                "error": "Wrong password"
+                "error": "Incorrect password"
             }, 401
 
         return {
