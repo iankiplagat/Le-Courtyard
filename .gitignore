@@ -1,4 +1,6 @@
-
+virtual/
 **/.vscode/
 __pycache__/
 *.pyc
+Pipfile/
+Pipfile
