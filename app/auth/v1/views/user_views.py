@@ -9,9 +9,11 @@ class Users(Resource):
 
   def __init__(self):
     self.parser = RequestParser()
+    self.parser.add_argument('username', type=str, required=True,
+                            help="please input a username")
     self.parser.add_argument('email', type=str, required=True,
                             help="please input an email")
-    self.parser.add_argument("pass_secure", type=str, required=True,
+    self.parser.add_argument("password", type=str, required=True,
                             help="please input a password")
 
 
@@ -21,12 +23,12 @@ class Users(Resource):
     '''Register user endpoint'''
     args = self.parser.parse_args()
     args = request.get_json()
-
+    username = args["username"]
     email = args["email"]
-    pass_secure = args["pass_secure"]
+    password = args["password"]
 
 
-    newUser = UserModels(email=email, pass_secure=pass_secure)
+    newUser = UserModels(username=username,email=email, password=password)
     newUser.save_user()
     result = User_schema.dump(newUser)
     
